@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\led.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\led.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Sun Feb 11 16:11:44 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Sun Feb 11 17:18:38 2024
 <BR><P>
 <H3>Maximum Stack Usage =         28 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -525,31 +525,15 @@ Global Symbols
 
 <P><STRONG><a name="[85]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[58]"></a>GPIO_Config</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, main.o(.text.GPIO_Config))
-<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[57]"></a>SysClockConfig</STRONG> (Thumb, 234 bytes, Stack size 4 bytes, main.o(.text.SysClockConfig))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = SysClockConfig
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
 <P><STRONG><a name="[42]"></a>SystemInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, system_stm32f4xx.o(.text.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f401xe.o(.text)
 </UL>
-<P><STRONG><a name="[59]"></a>delay</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, main.o(.text.delay))
-<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = delay
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
 <P><STRONG><a name="[4f]"></a>main</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = main &rArr; delay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Config
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysClockConfig
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sys_Clock_Config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -564,7 +548,23 @@ Global Symbols
 <P>
 <H3>
 Local Symbols
-</H3><P>
+</H3>
+<P><STRONG><a name="[57]"></a>Sys_Clock_Config</STRONG> (Thumb, 234 bytes, Stack size 4 bytes, main.o(.text.Sys_Clock_Config))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Sys_Clock_Config
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[58]"></a>GPIO_Config</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, main.o(.text.GPIO_Config))
+<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[59]"></a>delay</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, main.o(.text.delay))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = delay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+<P>
 <H3>
 Undefined Global Symbols
 </H3><HR></body></html>

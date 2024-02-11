@@ -389,6 +389,16 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>Sys_Clock_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sys_Clock_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GPIO_Config.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
