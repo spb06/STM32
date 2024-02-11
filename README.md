@@ -1,2 +1,2 @@
 # STM32
-Navigate to the master branch for projects. 
+Repo housing several low-level firmware drivers built around the STM32F401RE.
