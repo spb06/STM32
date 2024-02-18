@@ -1,8 +1,6 @@
-// LED driver with timer delay
-#include "Sys_Clock_Config.c"
-#include "GPIO_Config.c"
+#include "Delay.h"
+#include "Sys_Clock_Config.h"
 #include "stm32f4xx.h"
-
 
 void TIM3_Config (void) {
 	
@@ -10,7 +8,7 @@ void TIM3_Config (void) {
 	RCC->APB1ENR |= (1<<1); // enable TIM3
 	
 	// 2) set the prescalar and the ARR
-	TIM3->PSC = 20 - 1;	// 75Mhz / 75 = 1 MHz = 1uS delay
+	TIM3->PSC = 84 - 1;	// 84Mhz / 84 = 1 MHz = 1uS delay
 	TIM3->ARR = 0xffff; // MAX ARR Value
 	
 	//3) enable the timer and wait for update flag to set
@@ -33,22 +31,3 @@ void Delay_ms(uint16_t ms){
 	}
 	
 }
-
-int main(void) {
-	Sys_Clock_Config();
-	TIM3_Config();
-	GPIO_Config();
-
-	while(1) {
-		
-		// if button is pressed, turn off LED
-		if (GPIOC->IDR){ 						
-			GPIOA->BSRR |= (1<<5);
-			Delay_ms(1000);
-			GPIOA->BSRR |= (1<<21);
-			Delay_ms(1000);
-		}
-		
-	}
-	
-}	

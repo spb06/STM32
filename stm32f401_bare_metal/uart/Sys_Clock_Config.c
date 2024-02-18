@@ -1,10 +1,8 @@
 #include "stm32f4xx.h"
+#include "Sys_Clock_Config.h"
+#include "stm32f4xx.h"
 
-#define PLLM 25
-#define PLLN 168
-#define PLLP 0 // PLLP = 2;
-
-void static Sys_Clock_Config(void) {
+void Sys_Clock_Config(void) {
 	
 	// 1) enable HSE
 	RCC->CR |= RCC_CR_HSEON; 

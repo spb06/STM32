@@ -21,16 +21,22 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.2.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-C:\Users\swapn\OneDrive\Documents\Training\Embedded Systems\code\STM32\stm32f401_bare_metal\led_precise_delay\led.uvprojx
-Project File Date:  02/12/2024
+C:\Users\swapn\OneDrive\Documents\Training\Embedded Systems\code\STM32\stm32f401_bare_metal\uart\uart.uvprojx
+Project File Date:  02/15/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
+main.c(39): error: incompatible integer to pointer conversion passing 'char' to parameter of type 'char *'; remove * [-Wint-conversion]
+   39 |         while (*string) USART2_send_string(*string++);
+      |                                            ^~~~~~~~~
+main.c(38): note: passing argument to parameter 'string' here
+   38 | void USART2_send_string(char *string) {
+      |                               ^
+1 error generated.
 compiling main.c...
-linking...
-Program Size: Code=836 RO-data=420 RW-data=0 ZI-data=1632  
-".\Objects\led.axf" - 0 Error(s), 0 Warning(s).
+compiling Delay.c...
+".\Objects\led.axf" - 1 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +67,8 @@ Package Vendor: Keil
       Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f401xe.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-Build Time Elapsed:  00:00:00
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
