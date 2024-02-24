@@ -24,14 +24,14 @@ void Interrupt_config(void) {
 	NVIC_EnableIRQ(EXTI1_IRQn);
 }	
 
-extern int flag;
+extern int flag_EXTI;
 
 void EXT1_IRQHandler(void) {
 	
 	// check which pin triggered interrupt
 	if (EXTI->PR & (1<<1)) {
 		EXTI->PR |= (1<<1); // clear interrupt pending bit
-		flag = 1;
+		flag_EXTI = 1;
 	}
 	
 }

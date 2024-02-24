@@ -11,7 +11,7 @@
 
 uint16_t ADC_VAL[2] = {0,0}; // store ADC data
 
-int flag = 0; // flag for ext interrupt 1
+int flag_EXTI = 0; // flag for ext interrupt 1
 
 int count = 0; // count for ext interrupt 1
 
@@ -32,10 +32,10 @@ int main(void) {
 	Interrupt_config();
 
 	while(1) {
-		if (flag) {
+		if (flag_EXTI) {
 			Delay_ms(1000);
 			count++;
-			flag = 0;
+			flag_EXTI = 0;
 		}
 		//MPU6050_read_accel();
 		
