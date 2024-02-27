@@ -31,7 +31,7 @@ void EXT1_IRQHandler(void) {
 	// check which pin triggered interrupt
 	if (EXTI->PR & (1<<1)) {
 		EXTI->PR |= (1<<1); // clear interrupt pending bit
-		flag_EXTI = 1;
+		flag_EXTI = 1; 
 	}
 	
 }

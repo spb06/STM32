@@ -1,4 +1,4 @@
-// External Interrupt Driver
+// SPI driver
 
 #include "stm32f4xx.h"
 #include "Sys_Clock_Config.h"
@@ -8,6 +8,7 @@
 #include "i2c.h"
 #include "ADC.h"
 #include "EXT_interrupt.h"
+#include "SPI.h"
 
 uint16_t ADC_VAL[2] = {0,0}; // store ADC data
 
@@ -18,7 +19,7 @@ int count = 0; // count for ext interrupt 1
 int main(void) {
 	
 	Sys_Clock_Config();
-	TIM3_Config();
+	TIM3_Config(); // has delay func
 	GPIO_Config();
 	//USART2_config();
 	//I2C_config();
@@ -29,16 +30,25 @@ int main(void) {
 	//ADC_init();
 	//ADC_enable();
 	//MPU6050_init();
-	Interrupt_config();
+	//Interrupt_config();
+	SPI_config();
+	//SPI_STOP();
+	
+	uint8_t SPI1_write_data;
 
 	while(1) {
+		
+		SPI_read();
+		SPI_write(SPI1_write_data);
+		
+		/*
 		if (flag_EXTI) {
 			Delay_ms(1000);
 			count++;
 			flag_EXTI = 0;
 		}
 		//MPU6050_read_accel();
-		
+		*/
 		/*
 		ADC_start(1);
 		ADC_wait_for_conv();
