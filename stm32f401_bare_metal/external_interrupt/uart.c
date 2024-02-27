@@ -2,6 +2,20 @@
 
 void USART2_config(void){
 	
+	//////////////////////// UART-TX PA2 Setup Start ///////////////////////////
+	RCC->AHB1ENR |= (1<<0); //enable GPIOA
+	GPIOA->MODER |= (1<<5); // alternate function
+	GPIOA->OSPEEDR |= ((0<<4)|(1<<5)); // very high speed
+	GPIOA->AFR[0] |= (7<<8); // AF7 alternate function for PA2
+	//////////////////////// UART-TX PA2 Setup End /////////////////////////////
+	
+	//////////////////////// UART-RX PA3 Setup Start ///////////////////////////
+	RCC->AHB1ENR |= (1<<0);
+	GPIOA->MODER |= (1<<7);
+	GPIOA->OSPEEDR |= ((0<<6)|(1<<7)); 
+	GPIOA->AFR[0] |= (7<<12); // AF7 alternate function for PA3
+	//////////////////////// UART-RX PA3 Setup End /////////////////////////////
+	
 	// 1) Enable UART Clock and GPIO Clock
 	RCC->APB1ENR |= (1<<17); //USART2 enabled
 	

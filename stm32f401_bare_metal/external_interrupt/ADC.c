@@ -2,6 +2,11 @@
 
 void ADC_init(void){
 	
+	///////////////////////// ADC - PA1 and PA4 Setup Start ////////////////////
+	GPIOA->MODER |= (3<<2); // analog mode for PA 1
+	GPIOA->MODER |= (3<<8); // analog mode for PA 4
+	///////////////////////// ADC - PA1 Setup Start ////////////////////////////
+	
 	// 1) Enable ADC and GPIO clock
 	RCC->APB2ENR |= (0b1<<8); 
 	RCC->AHB1ENR |= (0b1<<0);

@@ -1,6 +1,24 @@
 #include "stm32f4xx.h"
 
 void I2C_config(void) {
+	//////////////////////// I2C_1 SCL - PB8 Setup Start ///////////////////////
+	RCC->AHB1ENR |= (0b1<<1);
+	GPIOB->MODER |= (0b10<<16); // alternate function
+	GPIOB->OTYPER |= (0b1<<8); // open drain
+	GPIOB->OSPEEDR |= (0b10<<16); // high speed
+	GPIOB->PUPDR |= (0b01<<16); //pull up resistor
+	GPIOB->AFR[1] |= (0b0100<<0); 
+	//////////////////////// I2C_1 SCL - PB8 Setup End /////////////////////////
+	
+	//////////////////////// I2C_1 SDA - PB9 Setup Start ///////////////////////
+	RCC->AHB1ENR |= (0b1<<1); 
+	GPIOB->MODER |= (0b10<<18); // alternate function
+	GPIOB->OTYPER |= (0b1<<9); // open drain
+	GPIOB->OSPEEDR |= (0b10<<18); // high speed
+	GPIOB->PUPDR |= (0b01<<18); //pull up resistor
+	GPIOB->AFR[1] |= (0b0100<<4); 
+	//////////////////////// I2C_1 SDA - PB9 Setup End /////////////////////////
+	
 	// 1) Enable I2C clock and GPIO clock
 	RCC->APB1ENR |= (1<<21);
 	

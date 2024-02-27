@@ -19,8 +19,8 @@ int count = 0; // count for ext interrupt 1
 int main(void) {
 	
 	Sys_Clock_Config();
+	LED_PushButton_Config();
 	TIM3_Config(); // has delay func
-	GPIO_Config();
 	//USART2_config();
 	//I2C_config();
 	//I2C_start();

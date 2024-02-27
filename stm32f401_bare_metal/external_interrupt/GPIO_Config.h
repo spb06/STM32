@@ -1,2 +1,1 @@
-
-void GPIO_Config(void);
+void LED_PushButton_Config(void);

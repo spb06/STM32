@@ -1,6 +1,11 @@
 #include "stm32f4xx.h"
 
 void Interrupt_config(void) {
+	//////////////////////// External Reset - PA1 Setup Start //////////////////
+	RCC->AHB1ENR |= (0b1<<0); 
+	GPIOA->MODER &= ~(3<<2); //config as input
+	GPIOA->PUPDR |= (1<<2);
+	//////////////////////// External Reset - PA1 Setup End ////////////////////	
 	
 	// enable SYSCONFIG clock
 	RCC->APB2ENR |= (1<<14); 
