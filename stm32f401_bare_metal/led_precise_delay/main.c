@@ -10,7 +10,7 @@ void TIM3_Config (void) {
 	RCC->APB1ENR |= (1<<1); // enable TIM3
 	
 	// 2) set the prescalar and the ARR
-	TIM3->PSC = 20 - 1;	// 75Mhz / 75 = 1 MHz = 1uS delay
+	TIM3->PSC = 84 - 1;	// 75Mhz / 75 = 1 MHz = 1uS delay
 	TIM3->ARR = 0xffff; // MAX ARR Value
 	
 	//3) enable the timer and wait for update flag to set
